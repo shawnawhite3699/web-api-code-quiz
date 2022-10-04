@@ -1,0 +1,22 @@
+* {
+    max-width: 100%;
+    background-color: white;
+    color: black;
+    font-family: 'Verdana', 'Geneva', 'Tahoma', 'sans-serif';
+}
+
+header {
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+}
+
+body {
+    text-align: center;
+}
+
+button {
+    background-color: #57A0D2;
+    color: white;
+}
+
