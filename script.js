@@ -1,5 +1,13 @@
-var startBtn = document.getElementById("startBtn");
+var startBtn = document.querySelector("#start")
 var time = 75;
+var questionPrompt = document.querySelector("#questionPrompt");
+var option1 = document.getElementById("option1");
+var option2 = document.getElementById("option2");
+var option3 = document.getElementById("option3");
+var option4 = document.getElementById("option4");
+var correctResponse = document.querySelector("correctResponse");
+var score = 0
+var i = 0
 
 var questions = [
     {
@@ -53,3 +61,11 @@ var questions = [
         correctResponse: 3 
     },
 ];
+
+function setQuestions() {
+    questionPrompt.textContent = questions[i].prompt;
+    option1.textContent = questions[i].option[0]; 
+    option2.textContent = questions[i].option[1]; 
+    option3.textContent = questions[i].option[2]; 
+    option4.textContent = questions[i].option[3]; 
+    };
