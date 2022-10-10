@@ -1,11 +1,16 @@
-var startBtn = document.querySelector("#start")
+var startBtn = document.getElementById("#startBtn")
 var time = 75;
-var questionPrompt = document.querySelector("#questionPrompt");
+var time_remaining = true;
+var time_start= false;
+var Timer = document.getElementById("Timer");
+var startContainer = document.getElementById("startContainer");
+var quizContainer = document.getElementById("quizContainer");
+var questionPrompt = document.getElementById("#questionPrompt");
 var option1 = document.getElementById("option1");
 var option2 = document.getElementById("option2");
 var option3 = document.getElementById("option3");
 var option4 = document.getElementById("option4");
-var correctResponse = document.querySelector("correctResponse");
+var correctResponse = document.getElementById("correctResponse");
 var score = 0
 var i = 0
 
@@ -62,10 +67,30 @@ var questions = [
     },
 ];
 
-function setQuestions() {
+var TimerInterval = setInterval(setTimer, 1000);
+
+function setTimer() {
+        if (time_start)
+        time--;
+        if(time <= 0) {
+        end_quiz();
+        time = 0;    
+        }
+        document.getElementById("timer").innerHTML = time;
+};
+
+startBtn.addEventListener("click", function() {
+    document.getElementById("score_keeper").style.display = "block";
+    document.getElementById("score").innerHTML = score;
+    setTimer();
+    setQuizQuestions();
+    time_start = true;
+});
+
+function setQuizQuestions() {
     questionPrompt.textContent = questions[i].prompt;
-    option1.textContent = questions[i].option[0]; 
-    option2.textContent = questions[i].option[1]; 
-    option3.textContent = questions[i].option[2]; 
-    option4.textContent = questions[i].option[3]; 
-    };
+    option1.textContent = questions[i].options[0]; 
+    option2.textContent = questions[i].options[1]; 
+    option3.textContent = questions[i].options[2]; 
+    option4.textContent = questions[i].options[3]; 
+};

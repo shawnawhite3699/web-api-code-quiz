@@ -1,3 +1,7 @@
+:root {
+    --carolinablue: #57A0D2;
+}
+
 * {
     max-width: 100%;
     background-color: white;
@@ -16,7 +20,12 @@ body {
 }
 
 button {
-    background-color: #57A0D2;
+    background-color: var(--carolinablue);
     color: white;
 }
 
+.container {
+    text-align: center;
+    font-size: 60px;
+    margin-top: 0px;
+}
